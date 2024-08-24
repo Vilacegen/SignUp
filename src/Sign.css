@@ -6,13 +6,18 @@
 }
 
 .signup-page {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #c906ff;
   background: linear-gradient(to right, #e2e2e2, #c906ff);
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  padding: 20px;
+  flex-direction: column;
+  height: 100vh;
+  padding: 10px;
 }
 
 .signup-page .container {
@@ -21,9 +26,9 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
   position: relative;
   overflow: hidden;
-  width: 100%;
-  max-width: 768px;
-  min-height: 480px;
+  width: 768px;
+  max-width: 100%;
+  min-height: 488px;
 }
 
 .signup-page .container p {
@@ -34,7 +39,7 @@
 }
 
 .signup-page .container span {
-  font-size: 12px;
+  font-size: 32px;
 }
 
 .signup-page .container a {
@@ -61,6 +66,7 @@
 .signup-page .container button.hidden {
   background-color: transparent;
   border-color: #fff;
+  color: #fff;
 }
 
 .signup-page .container-form {
@@ -88,12 +94,14 @@
   position: absolute;
   top: 0;
   height: 100%;
+  width: 50%;
   transition: all 0.6s ease-in-out;
+  opacity: 0;
+  margin-left: 25px;
 }
 
 .signup-page .sign-in {
   left: 0;
-  width: 50%;
   z-index: 2;
 }
 
@@ -101,18 +109,20 @@
   transform: translateX(100%);
 }
 
+.signup-page .container:not(.active) .sign-in {
+  opacity: 1;
+  z-index: 5;
+}
+
 .signup-page .sign-up {
-  left: 0;
-  width: 50%;
-  opacity: 0;
+  left: 100%;
   z-index: 1;
 }
 
 .signup-page .container.active .sign-up {
-  transform: translateX(100%);
+  transform: translateX(-100%);
   opacity: 1;
   z-index: 5;
-  animation: move 0.6s;
 }
 
 @keyframes move {
@@ -130,6 +140,7 @@
 
 .signup-page .social-icons {
   margin: 20px 0;
+  margin-left: 25px;
 }
 
 .signup-page .social-icons a {
@@ -211,7 +222,9 @@
 
 .signup-page label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 1px;
+  margin-top: 10px;
+  margin-left: 25px;
   font-size: 14px;
   color: #333;
   font-weight: 600;
@@ -219,9 +232,8 @@
 
 @media (max-width: 768px) {
   .signup-page .container {
-    min-height: 400px;
-    height: auto;
-    margin: 0 20px;
+    width: 100%;
+    min-height: auto;
   }
 
   .signup-page .toggle-container,
@@ -230,48 +242,27 @@
   }
 
   .signup-page .form-container {
-    position: static;
+    position: relative;
     width: 100%;
-    height: auto;
-    padding: 30px;
+    opacity: 1;
+    transform: translateX(0);
+    margin-left: 25px;
   }
 
   .signup-page .sign-up,
   .signup-page .sign-in {
     width: 100%;
     left: 0;
-    opacity: 1;
-    transform: translateX(0);
   }
 
-  .signup-page .container.active .sign-in,
-  .signup-page .container.active .sign-up {
-    transform: translateX(0);
+  .signup-page .social-icons {
+    margin-left: 0;
   }
 
-  .signup-page .container span {
-    font-size: 16px;
-  }
-
-  .signup-page .container button {
-    padding: 10px 30px;
-  }
-}
-
-@media (max-width: 480px) {
-  .signup-page .container {
-    margin: 0 10px;
-  }
-
-  .signup-page .form-container {
-    padding: 20px;
-  }
-
-  .signup-page .container span {
-    font-size: 14px;
-  }
-
-  .signup-page .container button {
-    padding: 8px 20px;
+  .signup-page .head,
+  .signup-page .span,
+  .signup-page .btnbtn,
+  .signup-page .loginbtn {
+    margin-left: 0;
   }
 }
